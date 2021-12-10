@@ -10,7 +10,7 @@ cargo build --release
 ```
 then copy it to /usr/bin/
 ```sh
- cp ./target/release/quick_fabric /usr/bin/
+sudo cp ./target/release/quick_fabric /usr/bin/
 ```
 and run it with
 ```
