@@ -4,19 +4,19 @@ Quickly install a new version of fabric loader!
 
 ## Use
 
-Compile it
+Clone it
 
 ```sh
-cargo build --release
+git clone https://github.com/Iru21/quick_fabric
 ```
 
-then copy it to /usr/bin/
+Install it
 
 ```sh
-sudo cp ./target/release/quick_fabric /usr/bin/
+cargo install --path ./quick_fabric
 ```
 
-and run it with
+And run! (Remember to have `~/.cargo/bin` in your `$PATH`)
 
 ```sh
 quick_fabric [minecraft version]
