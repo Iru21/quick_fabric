@@ -2,22 +2,28 @@
 
 Quickly install a new version of fabric loader!
 
-# Use
+## Use
 
 Compile it
+
 ```sh
 cargo build --release
 ```
+
 then copy it to /usr/bin/
+
 ```sh
 sudo cp ./target/release/quick_fabric /usr/bin/
 ```
+
 and run it with
-```
+
+```sh
 quick_fabric [minecraft version]
 ```
 
-# Example
+## Example
+
 ```sh
 quick_fabric 1.18.1
 ```
