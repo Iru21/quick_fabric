@@ -4,16 +4,10 @@ Quickly install a new version of fabric loader!
 
 ## Use
 
-Clone it
-
-```sh
-git clone https://github.com/Iru21/quick_fabric
-```
-
 Install it
 
 ```sh
-cargo install --path ./quick_fabric
+cargo install quick_fabric
 ```
 
 And run! (Remember to have `~/.cargo/bin` in your `$PATH`)
