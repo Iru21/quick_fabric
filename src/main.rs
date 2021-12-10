@@ -57,9 +57,6 @@ fn clear_dir(path: &Path) {
 }
 
 async fn download(url: String, folder: String) -> Result<String> {
-    let mut easy = Easy::new();
-    easy.url(&url).unwrap();
-    easy.follow_location(true).unwrap();
     if !Path::new(&folder).exists() {
         fs::create_dir_all(&folder).unwrap();
     }
@@ -75,6 +72,9 @@ async fn download(url: String, folder: String) -> Result<String> {
 
         println!("Downloading to {} from {}\n", full_path, url);
         let mut f = fs::File::create(&full_path)?;
+        let mut easy = Easy::new();
+        easy.url(&url).unwrap();
+        easy.follow_location(true).unwrap();
         easy.write_function(move |data| {
             f.write_all(data).unwrap();
             Ok(data.len())
