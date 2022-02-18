@@ -6,7 +6,9 @@ use curl::easy::Easy;
 use std::fs;
 use std::io::prelude::*;
 use std::path::Path;
+use std::path::MAIN_SEPARATOR;
 use reqwest;
+use dirs;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -18,7 +20,7 @@ async fn main() -> Result<()> {
     }
     let ver = &args[0];
     let url = get_installer_url().await?;
-    let installer_path = download(url, format!("{}/.cache/fabric-installers/", env::var("HOME").unwrap())).await?;
+    let installer_path = download(url, format!("{}{}fabric-installers{}", dirs::cache_dir().unwrap().to_str().unwrap(), MAIN_SEPARATOR, MAIN_SEPARATOR)).await?;
     run(&installer_path, ver.clone()).expect("Failed to run installer! Aborting...");
     println!("Successfully installed Fabric {} with {}", ver, &installer_path);
     Ok(())
